@@ -1,13 +1,13 @@
 import { Sequelize } from "sequelize-typescript";
 import config from 'config'
-import Type from "../models/type";
-import Furniture from "../models/furniture";
+import Game from "../models/game";
+import Audience from "../models/audience";
 
 
 const logging = config.get<boolean>('sequelize.logging') ? console.log : false
 
 const sequelize = new Sequelize({
-    models: [Type, Furniture],
+    models: [Game, Audience],
     dialect: 'mysql',
     ...config.get('db'),
     logging,

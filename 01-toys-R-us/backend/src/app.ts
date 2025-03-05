@@ -26,8 +26,8 @@ const app = express();
     // This middleware will try to get the user from JWT if present
     // app.use(extractUserFromToken);
 
-    app.use('/furnitures', furnitureRouter)
-    app.use('/types', typeRouter)
+    // app.use('/furnitures', furnitureRouter)
+    // app.use('/types', typeRouter)
 
     // special notFound middleware
     app.use(notFound)

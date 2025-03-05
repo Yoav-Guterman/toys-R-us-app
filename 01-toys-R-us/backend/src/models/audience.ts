@@ -10,12 +10,12 @@ import {
     PrimaryKey,
     Table
 } from "sequelize-typescript";
-import Furniture from "./furniture";
+import Game from "./game";
 
 @Table({
     underscored: true
 })
-export default class Type extends Model {
+export default class Audience extends Model {
 
     @PrimaryKey
     @Default(DataType.UUIDV4)
@@ -26,6 +26,6 @@ export default class Type extends Model {
     @Column(DataType.STRING(40))
     name: string
 
-    @HasMany(() => Furniture)
-    furnitures: Furniture[]
+    @HasMany(() => Game)
+    games: Game[]
 }

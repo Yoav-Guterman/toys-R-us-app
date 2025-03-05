@@ -1,7 +1,7 @@
 {
     "app": {
         "port": "3000",
-        "name": "furniture-app",
+        "name": "toys-R-us",
         "secret": "MySecret",
         "jwtSecret": "myJwtSecret"
     },
@@ -10,7 +10,7 @@
         "port": 3306,
         "username": "root",
         "password": "",
-        "database": "furniture"
+        "database": "toys_r_us"
     },
     "sequelize": {
         "logging": true,

@@ -12,35 +12,35 @@ import {
     PrimaryKey,
     Table
 } from "sequelize-typescript";
-import Type from "./type";
+import Audience from "./audience";
 
 @Table({
     underscored: true
 })
-export default class Furniture extends Model {
+export default class Game extends Model {
 
     @PrimaryKey
     @Default(DataType.UUIDV4)
     @Column(DataType.UUID)
     id: string
 
-    @ForeignKey(() => Type)
+    @ForeignKey(() => Audience)
     @AllowNull(false)
     @Column(DataType.UUID)
-    typeId: string
+    AudienceId: string
 
     @AllowNull(false)
     @Column(DataType.STRING(40))
-    size: string
+    name: string
 
     @AllowNull(false)
     @Column(DataType.STRING(40))
-    color: string
+    description: string
 
     @AllowNull(false)
     @Column(DataType.DECIMAL(10, 2))
     price: number
 
-    @BelongsTo(() => Type)
-    types: Type
+    @BelongsTo(() => Audience)
+    audience: Audience
 }

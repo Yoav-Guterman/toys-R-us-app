@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Mar 02, 2025 at 07:51 PM
+-- Generation Time: Mar 05, 2025 at 09:03 AM
 -- Server version: 9.2.0
 -- PHP Version: 8.2.27
 SET
@@ -23,81 +23,20 @@ SET
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `furniture`
+-- Database: `toys_r_us`
 --
-CREATE DATABASE IF NOT EXISTS `furniture` DEFAULT CHARACTER
+CREATE DATABASE IF NOT EXISTS `toys_r_us` DEFAULT CHARACTER
 SET
     utf8mb4 COLLATE utf8mb4_general_ci;
 
-USE `furniture`;
+USE `toys_r_us`;
 
 -- --------------------------------------------------------
 --
--- Table structure for table `furniture`
+-- Table structure for table `audiences`
 --
 CREATE TABLE
-    `furniture` (
-        `id` char(36) CHARACTER
-        SET
-            utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-            `type_id` char(36) CHARACTER
-        SET
-            utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-            `size` varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
-            `color` varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
-            `price` decimal(10, 2) NOT NULL,
-            `created_at` datetime NOT NULL,
-            `updated_at` datetime NOT NULL
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
-
---
--- Dumping data for table `furniture`
---
-INSERT INTO
-    `furniture` (
-        `id`,
-        `type_id`,
-        `size`,
-        `color`,
-        `price`,
-        `created_at`,
-        `updated_at`
-    )
-VALUES
-    (
-        'c8238ff5-f79e-11ef-8440-0242ac110002',
-        '96f87cec-f79d-11ef-8440-0242ac110002',
-        '30x50x150',
-        'white',
-        3200.00,
-        '2025-03-02 19:36:20',
-        '2025-03-02 19:36:20'
-    ),
-    (
-        'c82394f8-f79e-11ef-8440-0242ac110002',
-        '96f87cec-f79d-11ef-8440-0242ac110002',
-        '50x100x300',
-        'brown',
-        4000.00,
-        '2025-03-02 19:36:20',
-        '2025-03-02 19:36:20'
-    ),
-    (
-        'c823979a-f79e-11ef-8440-0242ac110002',
-        '96f879c4-f79d-11ef-8440-0242ac110002',
-        '20x50x70',
-        'black',
-        800.00,
-        '2025-03-02 19:36:20',
-        '2025-03-02 19:36:20'
-    );
-
--- --------------------------------------------------------
---
--- Table structure for table `types`
---
-CREATE TABLE
-    `types` (
+    `audiences` (
         `id` char(36) CHARACTER
         SET
             utf8mb4 COLLATE utf8mb4_bin NOT NULL,
@@ -107,51 +46,154 @@ CREATE TABLE
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 --
--- Dumping data for table `types`
+-- Dumping data for table `audiences`
 --
 INSERT INTO
-    `types` (`id`, `name`, `created_at`, `updated_at`)
+    `audiences` (`id`, `name`, `created_at`, `updated_at`)
 VALUES
     (
-        '96f86621-f79d-11ef-8440-0242ac110002',
-        'chair',
-        '2025-03-02 19:34:36',
-        '2025-03-02 19:34:36'
+        'e48ca927-f99f-11ef-bedc-0242ac110002',
+        'kids',
+        '2025-03-05 08:57:17',
+        '2025-03-05 08:57:17'
     ),
     (
-        '96f879c4-f79d-11ef-8440-0242ac110002',
-        'desk',
-        '2025-03-02 19:34:36',
-        '2025-03-02 19:34:36'
+        'e48cb298-f99f-11ef-bedc-0242ac110002',
+        'babies',
+        '2025-03-05 08:57:17',
+        '2025-03-05 08:57:17'
     ),
     (
-        '96f87cec-f79d-11ef-8440-0242ac110002',
+        'fbadafe2-f99f-11ef-bedc-0242ac110002',
+        'teens',
+        '2025-03-05 08:57:45',
+        '2025-03-05 08:57:45'
+    ),
+    (
+        'fbadb6d7-f99f-11ef-bedc-0242ac110002',
+        'adults',
+        '2025-03-05 08:57:45',
+        '2025-03-05 08:57:45'
+    );
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `games`
+--
+CREATE TABLE
+    `games` (
+        `id` char(36) CHARACTER
+        SET
+            utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+            `audience_id` char(36) CHARACTER
+        SET
+            utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+            `name` varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
+            `description` varchar(40) COLLATE utf8mb4_general_ci NOT NULL,
+            `price` decimal(10, 2) NOT NULL,
+            `created_at` datetime NOT NULL,
+            `updated_at` datetime NOT NULL
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+--
+-- Dumping data for table `games`
+--
+INSERT INTO
+    `games` (
+        `id`,
+        `audience_id`,
+        `name`,
+        `description`,
+        `price`,
+        `created_at`,
+        `updated_at`
+    )
+VALUES
+    (
+        '7ee59e72-f9a0-11ef-bedc-0242ac110002',
+        'e48cb298-f99f-11ef-bedc-0242ac110002',
+        'spinner',
+        'cool spinner children can play with',
+        10.00,
+        '2025-03-05 08:58:23',
+        '2025-03-05 08:58:23'
+    ),
+    (
+        '7ee5a569-f9a0-11ef-bedc-0242ac110002',
+        'e48cb298-f99f-11ef-bedc-0242ac110002',
+        'galgiliot',
+        'cool galgigliot you can skate with',
+        15.00,
+        '2025-03-05 08:58:23',
+        '2025-03-05 08:58:23'
+    ),
+    (
+        '7ee5a839-f9a0-11ef-bedc-0242ac110002',
+        'fbadb6d7-f99f-11ef-bedc-0242ac110002',
         'sofa',
-        '2025-03-02 19:34:36',
-        '2025-03-02 19:34:36'
+        'cool sofa adults can rest in',
+        1000.00,
+        '2025-03-05 08:58:23',
+        '2025-03-05 08:58:23'
+    ),
+    (
+        '7ee5aab1-f9a0-11ef-bedc-0242ac110002',
+        'e48ca927-f99f-11ef-bedc-0242ac110002',
+        'sucker',
+        'cool sucker babies can suck',
+        5.00,
+        '2025-03-05 08:58:23',
+        '2025-03-05 08:58:23'
+    ),
+    (
+        '7ee5ad12-f9a0-11ef-bedc-0242ac110002',
+        'fbadb6d7-f99f-11ef-bedc-0242ac110002',
+        'ring',
+        'cool ring babies can ring in',
+        124.00,
+        '2025-03-05 08:58:23',
+        '2025-03-05 08:58:23'
+    ),
+    (
+        '98327d19-f9a0-11ef-bedc-0242ac110002',
+        'e48cb298-f99f-11ef-bedc-0242ac110002',
+        'chair',
+        'cool chair adults can rest in',
+        1234.00,
+        '2025-03-05 09:02:11',
+        '2025-03-05 09:02:11'
+    ),
+    (
+        '98328326-f9a0-11ef-bedc-0242ac110002',
+        'e48cb298-f99f-11ef-bedc-0242ac110002',
+        'desk',
+        'cool dest you can learn on§',
+        987.00,
+        '2025-03-05 09:02:11',
+        '2025-03-05 09:02:11'
     );
 
 --
 -- Indexes for dumped tables
 --
 --
--- Indexes for table `furniture`
+-- Indexes for table `audiences`
 --
-ALTER TABLE `furniture` ADD PRIMARY KEY (`id`),
-ADD KEY `type_id` (`type_id`);
+ALTER TABLE `audiences` ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `types`
+-- Indexes for table `games`
 --
-ALTER TABLE `types` ADD PRIMARY KEY (`id`);
+ALTER TABLE `games` ADD PRIMARY KEY (`id`),
+ADD KEY `audience_id` (`audience_id`);
 
 --
 -- Constraints for dumped tables
 --
 --
--- Constraints for table `furniture`
+-- Constraints for table `games`
 --
-ALTER TABLE `furniture` ADD CONSTRAINT `furniture_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `games` ADD CONSTRAINT `games_ibfk_1` FOREIGN KEY (`audience_id`) REFERENCES `audiences` (`id`) ON UPDATE CASCADE;
 
 COMMIT;
 
