@@ -5,8 +5,8 @@ import errorLogger from "./middlewares/error/error-logger"
 import errorResponder from "./middlewares/error/error-responder"
 import notFound from "./middlewares/not-found"
 import cors from 'cors'
-import furnitureRouter from "./routers/furnitures"
-import typeRouter from "./routers/types"
+import audienceRouter from "./routers/audiences"
+import gamesRouter from "./routers/games"
 
 const port = config.get<string>('app.port')
 const name = config.get<string>('app.name')
@@ -26,8 +26,8 @@ const app = express();
     // This middleware will try to get the user from JWT if present
     // app.use(extractUserFromToken);
 
-    // app.use('/furnitures', furnitureRouter)
-    // app.use('/types', typeRouter)
+    app.use('/audiences', audienceRouter)
+    app.use('/games', gamesRouter)
 
     // special notFound middleware
     app.use(notFound)

@@ -42,5 +42,5 @@ export default class Game extends Model {
     price: number
 
     @BelongsTo(() => Audience)
-    audience: Audience
+    audiences: Audience
 }
